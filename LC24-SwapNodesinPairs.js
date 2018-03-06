@@ -18,3 +18,20 @@ var swapPairs = function(head) {
   newHead.next = head;
   return newHead;
 };
+
+var swapPairs = function(head) {
+  if (head === null || head.next === null) {
+      return head;
+  }
+  var preHead = new ListNode(0);
+  preHead.next = head;
+  var pre = preHead, cur = head;
+  while (cur !== null && cur.next !== null) {
+      pre.next = cur.next;
+      pre = cur;
+      cur = cur.next.next;
+      pre.next.next = pre;
+  }
+  pre.next = cur;
+  return preHead.next;
+};

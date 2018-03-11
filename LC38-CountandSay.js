@@ -1,3 +1,7 @@
+/**
+ * @param {number} n
+ * @return {string}
+ */
 var countAndSay = function(n) {
   var res = '1';
   for (var i = 2; i <= n; i++) {
@@ -7,7 +11,7 @@ var countAndSay = function(n) {
           if (j < res.length - 1 && res[j] === res[j + 1]) {
               count++;
           } else {
-              cur += (count + res[j]);
+              cur += count + res[j];
               count = 1;
           }
       }
@@ -15,5 +19,3 @@ var countAndSay = function(n) {
   }
   return res;
 };
-
-console.log(countAndSay(5));
